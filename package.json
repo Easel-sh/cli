@@ -1,0 +1,48 @@
+{
+  "name": "easel-sh",
+  "version": "0.1.2",
+  "description": "Deploy and manage apps on Easel from your terminal.",
+  "keywords": [
+    "easel",
+    "deploy",
+    "hosting",
+    "cli"
+  ],
+  "homepage": "https://easel.sh/docs/cli",
+  "bugs": "https://github.com/Easel-sh/cli/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Easel-sh/cli.git"
+  },
+  "type": "module",
+  "bin": {
+    "easel": "./dist/cli.js",
+    "easel-sh": "./dist/cli.js"
+  },
+  "files": [
+    "dist/**/*.js"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\" && tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@easel-sh/sdk": "^0.1.2",
+    "open": "^10.2.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/yargs": "^17.0.35",
+    "typescript": "6.0.3",
+    "vitest": "^4.1.9"
+  }
+}
